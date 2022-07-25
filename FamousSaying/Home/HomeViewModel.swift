@@ -14,8 +14,17 @@ final class HomeViewModel: ObservableObject {
     // MARK: - Properties
     
     @Published var quotes: [QuoteModel] = []
+    
     @Published var currentQuote: QuoteModel?
+    
     var index = 0
+    
+    enum Favorite {
+        case yes
+        case no
+    }
+    
+    var favoriteTrigger = PassthroughSubject<Favorite, Never>()
     
     // MARK: - Methods
     
@@ -40,23 +49,29 @@ final class HomeViewModel: ObservableObject {
         return false
     }
     
-    @objc func addToFavorite(_ sender: UIButton) {
-        if sender.image(for: .normal) == UIImage(systemName: "star") {
-            let newQuote = Quote(context: Persistence.shared.context)
-            newQuote.quote = currentQuote!.quote
-            newQuote.anime = currentQuote!.anime
-            newQuote.character = currentQuote!.character
-            Persistence.shared.saveContext()
-            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            sender.tintColor = .systemYellow
+    func setFavoriteButton(by quote: QuoteModel) {
+        if isFavorited(quote) {
+            favoriteTrigger.send(.yes)
         } else {
-            for quote in Persistence.shared.fetchQuotes() {
-                if quote.quote == currentQuote!.quote {
-                    Persistence.shared.deleteQuote(quote)
-                    sender.setImage(UIImage(systemName: "star"), for: .normal)
-                    sender.tintColor = .gray
-                    return
-                }
+            favoriteTrigger.send(.no)
+        }
+    }
+    
+    func addToFavorite() {
+        let newQuote = Quote(context: Persistence.shared.context)
+        newQuote.quote = currentQuote!.quote
+        newQuote.anime = currentQuote!.anime
+        newQuote.character = currentQuote!.character
+        Persistence.shared.saveContext()
+        favoriteTrigger.send(.yes)
+    }
+    
+    func deleteFromFavorite() {
+        for quote in Persistence.shared.fetchQuotes() {
+            if quote.quote == currentQuote!.quote {
+                Persistence.shared.deleteQuote(quote)
+                favoriteTrigger.send(.no)
+                return
             }
         }
     }

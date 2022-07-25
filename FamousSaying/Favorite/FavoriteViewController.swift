@@ -16,6 +16,7 @@ final class FavoriteViewController: UIViewController {
     let favoriteView = FavoriteView()
     
     var viewModel = FavoriteViewModel()
+    
     var cancelBag = Set<AnyCancellable>()
 
     // MARK: - Methods
@@ -76,16 +77,21 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
         return cell ?? UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
         if editingStyle == .delete {
             viewModel.deleteQuote(viewModel.quotes[indexPath.row])
             favoriteView.favoriteQuotesTablewView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            
         }
     }
     
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(
+        _ tableView: UITableView,
+        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
         let copy = UIContextualAction(style: .normal, title: "Copy") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
             UIPasteboard.general.string = self.viewModel.quotes[indexPath.row].quote
             success(true)

@@ -21,15 +21,6 @@ class HomeView: UIView {
         return view
     }()
     
-    let favoriteButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "star"), for: .normal)
-        button.tintColor = .gray
-        button.layer.opacity = 0
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     // MARK: - Methods
     
     override init(frame: CGRect) {
@@ -40,7 +31,7 @@ class HomeView: UIView {
     }
     
     private func makeSubviews() {
-        [cardView, favoriteButton].forEach { self.addSubview($0) }
+        [cardView].forEach { self.addSubview($0) }
     }
     
     private func makeConstraints() {
@@ -48,10 +39,8 @@ class HomeView: UIView {
                                    cardView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
                                    cardView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
                                    cardView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)]
-        let favoriteButtonConstrains = [favoriteButton.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 20),
-                                        favoriteButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -20)]
         
-        [cardViewConstraints, favoriteButtonConstrains].forEach { NSLayoutConstraint.activate($0) }
+        [cardViewConstraints].forEach { NSLayoutConstraint.activate($0) }
     }
     
     required init?(coder: NSCoder) {

@@ -15,14 +15,6 @@ final class HomeViewController: UIViewController {
     lazy var homeView: HomeView = {
         let view = HomeView()
         view.cardView.isUserInteractionEnabled = true
-        let leftSwipeGesture = UISwipeGestureRecognizer(target: viewModel, action: #selector(viewModel.forwardCurrentQuote))
-        leftSwipeGesture.direction = .left
-        let rightSwipeGesture = UISwipeGestureRecognizer(target: viewModel, action: #selector(viewModel.backwardCurrentQuote))
-        rightSwipeGesture.direction = .right
-        
-        view.cardView.addGestureRecognizer(leftSwipeGesture)
-        view.cardView.addGestureRecognizer(rightSwipeGesture)
-        
         return view
     }()
     
@@ -38,6 +30,7 @@ final class HomeViewController: UIViewController {
         self.view.backgroundColor = .white
         
         self.navigationItem.title = "Home"
+        homeView.cardView.delegate = self
         
         binding()
     }
@@ -64,50 +57,57 @@ final class HomeViewController: UIViewController {
             }
             .store(in: &cancelBag)
         
-        homeView.favoriteButton.addTarget(viewModel, action: #selector(viewModel.addToFavorite), for: .touchUpInside)
+        viewModel.favoriteTrigger
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] trigger in
+                switch trigger {
+                case .yes:
+                    self?.homeView.cardView.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                    self?.homeView.cardView.favoriteButton.tintColor = .systemYellow
+                case .no:
+                    self?.homeView.cardView.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+                    self?.homeView.cardView.favoriteButton.tintColor = .gray
+                }
+            }
+            .store(in: &cancelBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let currentQuote = viewModel.currentQuote {
-            if self.viewModel.isFavorited(currentQuote) {
-                self.homeView.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-                self.homeView.favoriteButton.tintColor = .systemYellow
-            } else {
-                self.homeView.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
-                self.homeView.favoriteButton.tintColor = .gray
-            }
+            viewModel.setFavoriteButton(by: currentQuote)
         }
     }
     
     private func setOpacityTo(_ isHidden: Bool) {
-        if isHidden {
-            homeView.cardView.quoteLabel.layer.opacity = 0
-            homeView.cardView.animeLabel.layer.opacity = 0
-            homeView.cardView.characterLabel.layer.opacity = 0
-            homeView.favoriteButton.layer.opacity = 0
-        } else {
-            homeView.cardView.quoteLabel.layer.opacity = 1
-            homeView.cardView.animeLabel.layer.opacity = 1
-            homeView.cardView.characterLabel.layer.opacity = 1
-            homeView.favoriteButton.layer.opacity = 1
-        }
+        homeView.cardView.quoteLabel.layer.opacity = isHidden ? 0 : 1
+        homeView.cardView.animeLabel.layer.opacity = isHidden ? 0 : 1
+        homeView.cardView.characterLabel.layer.opacity = isHidden ? 0 : 1
+        homeView.cardView.favoriteButton.layer.opacity = isHidden ? 0 : 1
     }
     
     private func setCardView(with quoteModel: QuoteModel) {
         homeView.cardView.quoteLabel.text = quoteModel.quote
         homeView.cardView.animeLabel.text = quoteModel.anime
         homeView.cardView.characterLabel.text = "- " + quoteModel.character
-        isFavorited(quoteModel: quoteModel)
+        viewModel.setFavoriteButton(by: quoteModel)
+    }
+}
+
+extension HomeViewController: CardViewDelegate {
+    func didLeftSwipe() {
+        viewModel.forwardCurrentQuote()
     }
     
-    private func isFavorited(quoteModel: QuoteModel) {
-        if viewModel.isFavorited(quoteModel) {
-            homeView.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            homeView.favoriteButton.tintColor = .systemYellow
+    func didRightSwipe() {
+        viewModel.backwardCurrentQuote()
+    }
+    
+    func didTapFavoriteButton() {
+        if viewModel.isFavorited(viewModel.currentQuote!) {
+            viewModel.deleteFromFavorite()
         } else {
-            homeView.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
-            homeView.favoriteButton.tintColor = .gray
+            viewModel.addToFavorite()
         }
     }
 }

@@ -25,6 +25,7 @@
 		B73C75D3288BB70900488D5B /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75D2288BB70900488D5B /* FavoriteViewModel.swift */; };
 		B748492D288E91C200137E9A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B748492C288E91C200137E9A /* HomeViewModel.swift */; };
 		B748492F288EC82900137E9A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B748492E288EC82900137E9A /* CardView.swift */; };
+		B7484931288EF73100137E9A /* CardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7484930288EF73100137E9A /* CardViewDelegate.swift */; };
 		B7F7F051288A64AF00D19B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F7F050288A64AF00D19B44 /* AppDelegate.swift */; };
 		B7F7F053288A64AF00D19B44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F7F052288A64AF00D19B44 /* SceneDelegate.swift */; };
 		B7F7F055288A64AF00D19B44 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F7F054288A64AF00D19B44 /* RootTabBarViewController.swift */; };
@@ -51,6 +52,7 @@
 		B73C75D2288BB70900488D5B /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		B748492C288E91C200137E9A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B748492E288EC82900137E9A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B7484930288EF73100137E9A /* CardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewDelegate.swift; sourceTree = "<group>"; };
 		B7F7F04D288A64AF00D19B44 /* FamousSaying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamousSaying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F7F050288A64AF00D19B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7F7F052288A64AF00D19B44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				B73C75B4288AF2B700488D5B /* HomeViewController.swift */,
 				B748492C288E91C200137E9A /* HomeViewModel.swift */,
 				B748492E288EC82900137E9A /* CardView.swift */,
+				B7484930288EF73100137E9A /* CardViewDelegate.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				B73C75BC288AF62600488D5B /* HomeView.swift in Sources */,
 				B748492F288EC82900137E9A /* CardView.swift in Sources */,
 				B73C75CF288BB57800488D5B /* Quote+CoreDataProperties.swift in Sources */,
+				B7484931288EF73100137E9A /* CardViewDelegate.swift in Sources */,
 				B73C75CE288BB57800488D5B /* Quote+CoreDataClass.swift in Sources */,
 				B7F7F053288A64AF00D19B44 /* SceneDelegate.swift in Sources */,
 				B73C75D1288BB5E500488D5B /* Persistence.swift in Sources */,
