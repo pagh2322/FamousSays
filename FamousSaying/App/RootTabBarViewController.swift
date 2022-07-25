@@ -7,12 +7,15 @@
 
 import UIKit
 
-class RootTabBarViewController: UITabBarController {
+final class RootTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupTabber()
+    }
+
+    private func setupTabber() {
         let homeTab = UINavigationController(rootViewController: HomeViewController())
         homeTab.title = "Home"
         let favoriteTab = UINavigationController(rootViewController: FavoriteViewController())
@@ -31,7 +34,5 @@ class RootTabBarViewController: UITabBarController {
             items[index].image = UIImage(systemName: images[index])
         }
     }
-
-
 }
 

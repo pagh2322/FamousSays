@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B73C75AE288AD47500488D5B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75AD288AD47500488D5B /* APIClient.swift */; };
-		B73C75B1288AD49800488D5B /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75B0288AD49800488D5B /* Quote.swift */; };
-		B73C75B3288AD56B00488D5B /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75B2288AD56B00488D5B /* Quotes.swift */; };
 		B73C75B5288AF2B700488D5B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75B4288AF2B700488D5B /* HomeViewController.swift */; };
 		B73C75B7288AF2D200488D5B /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75B6288AF2D200488D5B /* FavoriteViewController.swift */; };
 		B73C75B9288AF2D800488D5B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75B8288AF2D800488D5B /* SettingViewController.swift */; };
@@ -19,13 +17,12 @@
 		B73C75C5288B0AF100488D5B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75C4288B0AF100488D5B /* UIColor.swift */; };
 		B73C75C8288B0BF500488D5B /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75C7288B0BF500488D5B /* BaseLabel.swift */; };
 		B73C75CB288BB4F000488D5B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B73C75C9288BB4EF00488D5B /* Model.xcdatamodeld */; };
-		B73C75CE288BB57800488D5B /* Quote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75CC288BB57800488D5B /* Quote+CoreDataClass.swift */; };
-		B73C75CF288BB57800488D5B /* Quote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75CD288BB57800488D5B /* Quote+CoreDataProperties.swift */; };
-		B73C75D1288BB5E500488D5B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75D0288BB5E500488D5B /* Persistence.swift */; };
+		B73C75D1288BB5E500488D5B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75D0288BB5E500488D5B /* CoreDataStack.swift */; };
 		B73C75D3288BB70900488D5B /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C75D2288BB70900488D5B /* FavoriteViewModel.swift */; };
 		B748492D288E91C200137E9A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B748492C288E91C200137E9A /* HomeViewModel.swift */; };
 		B748492F288EC82900137E9A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B748492E288EC82900137E9A /* CardView.swift */; };
 		B7484931288EF73100137E9A /* CardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7484930288EF73100137E9A /* CardViewDelegate.swift */; };
+		B7484935288F07D100137E9A /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7484934288F07D100137E9A /* QuoteModel.swift */; };
 		B7F7F051288A64AF00D19B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F7F050288A64AF00D19B44 /* AppDelegate.swift */; };
 		B7F7F053288A64AF00D19B44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F7F052288A64AF00D19B44 /* SceneDelegate.swift */; };
 		B7F7F055288A64AF00D19B44 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F7F054288A64AF00D19B44 /* RootTabBarViewController.swift */; };
@@ -35,8 +32,6 @@
 
 /* Begin PBXFileReference section */
 		B73C75AD288AD47500488D5B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		B73C75B0288AD49800488D5B /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		B73C75B2288AD56B00488D5B /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		B73C75B4288AF2B700488D5B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B73C75B6288AF2D200488D5B /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		B73C75B8288AF2D800488D5B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -46,13 +41,12 @@
 		B73C75C4288B0AF100488D5B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B73C75C7288B0BF500488D5B /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		B73C75CA288BB4F000488D5B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		B73C75CC288BB57800488D5B /* Quote+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B73C75CD288BB57800488D5B /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B73C75D0288BB5E500488D5B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		B73C75D0288BB5E500488D5B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B73C75D2288BB70900488D5B /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		B748492C288E91C200137E9A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B748492E288EC82900137E9A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B7484930288EF73100137E9A /* CardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewDelegate.swift; sourceTree = "<group>"; };
+		B7484934288F07D100137E9A /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		B7F7F04D288A64AF00D19B44 /* FamousSaying.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamousSaying.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F7F050288A64AF00D19B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7F7F052288A64AF00D19B44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,23 +67,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B73C75AF288AD48D00488D5B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B73C75B0288AD49800488D5B /* Quote.swift */,
-				B73C75B2288AD56B00488D5B /* Quotes.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		B73C75BA288AF61A00488D5B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B7484932288F06C700137E9A /* CardView */,
 				B73C75BB288AF62600488D5B /* HomeView.swift */,
 				B73C75B4288AF2B700488D5B /* HomeViewController.swift */,
 				B748492C288E91C200137E9A /* HomeViewModel.swift */,
-				B748492E288EC82900137E9A /* CardView.swift */,
-				B7484930288EF73100137E9A /* CardViewDelegate.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -152,16 +136,31 @@
 			isa = PBXGroup;
 			children = (
 				B73C75C9288BB4EF00488D5B /* Model.xcdatamodeld */,
-				B73C75D0288BB5E500488D5B /* Persistence.swift */,
+				B73C75D0288BB5E500488D5B /* CoreDataStack.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B7484932288F06C700137E9A /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				B748492E288EC82900137E9A /* CardView.swift */,
+				B7484930288EF73100137E9A /* CardViewDelegate.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		B7484933288F07C700137E9A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B7484934288F07D100137E9A /* QuoteModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B7F7F044288A64AF00D19B44 = {
 			isa = PBXGroup;
 			children = (
-				B73C75CC288BB57800488D5B /* Quote+CoreDataClass.swift */,
-				B73C75CD288BB57800488D5B /* Quote+CoreDataProperties.swift */,
 				B7F7F04F288A64AF00D19B44 /* FamousSaying */,
 				B7F7F04E288A64AF00D19B44 /* Products */,
 			);
@@ -178,6 +177,7 @@
 		B7F7F04F288A64AF00D19B44 /* FamousSaying */ = {
 			isa = PBXGroup;
 			children = (
+				B7484933288F07C700137E9A /* Models */,
 				B748492B288E908D00137E9A /* CoreData */,
 				B748492A288E905D00137E9A /* App */,
 				B7484929288E905200137E9A /* Resources */,
@@ -186,7 +186,6 @@
 				B73C75C2288B0AD000488D5B /* Setting */,
 				B73C75BD288AFE1000488D5B /* Favorite */,
 				B73C75BA288AF61A00488D5B /* Home */,
-				B73C75AF288AD48D00488D5B /* Models */,
 				B7F7F05E288A64B100D19B44 /* Info.plist */,
 				B73C75AD288AD47500488D5B /* APIClient.swift */,
 			);
@@ -267,18 +266,15 @@
 				B73C75C8288B0BF500488D5B /* BaseLabel.swift in Sources */,
 				B73C75CB288BB4F000488D5B /* Model.xcdatamodeld in Sources */,
 				B748492D288E91C200137E9A /* HomeViewModel.swift in Sources */,
+				B7484935288F07D100137E9A /* QuoteModel.swift in Sources */,
 				B7F7F051288A64AF00D19B44 /* AppDelegate.swift in Sources */,
-				B73C75B3288AD56B00488D5B /* Quotes.swift in Sources */,
 				B73C75BC288AF62600488D5B /* HomeView.swift in Sources */,
 				B748492F288EC82900137E9A /* CardView.swift in Sources */,
-				B73C75CF288BB57800488D5B /* Quote+CoreDataProperties.swift in Sources */,
 				B7484931288EF73100137E9A /* CardViewDelegate.swift in Sources */,
-				B73C75CE288BB57800488D5B /* Quote+CoreDataClass.swift in Sources */,
 				B7F7F053288A64AF00D19B44 /* SceneDelegate.swift in Sources */,
-				B73C75D1288BB5E500488D5B /* Persistence.swift in Sources */,
+				B73C75D1288BB5E500488D5B /* CoreDataStack.swift in Sources */,
 				B73C75BF288AFE9D00488D5B /* FavoriteView.swift in Sources */,
 				B73C75D3288BB70900488D5B /* FavoriteViewModel.swift in Sources */,
-				B73C75B1288AD49800488D5B /* Quote.swift in Sources */,
 				B73C75B9288AF2D800488D5B /* SettingViewController.swift in Sources */,
 				B73C75B5288AF2B700488D5B /* HomeViewController.swift in Sources */,
 				B73C75C5288B0AF100488D5B /* UIColor.swift in Sources */,

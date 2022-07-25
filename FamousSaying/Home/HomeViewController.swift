@@ -66,7 +66,7 @@ final class HomeViewController: UIViewController {
                     self?.homeView.cardView.favoriteButton.tintColor = .systemYellow
                 case .no:
                     self?.homeView.cardView.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
-                    self?.homeView.cardView.favoriteButton.tintColor = .gray
+                    self?.homeView.cardView.favoriteButton.tintColor = .cGray
                 }
             }
             .store(in: &cancelBag)

@@ -17,14 +17,14 @@ final class FavoriteViewModel: ObservableObject {
     // MARK: - Methods
     
     init() {
-        quotes = Persistence.shared.fetchQuotes().reversed()
+        quotes = CoreDataStack.shared.fetchQuotes().reversed()
     }
     
     func deleteQuote(_ quote: Quote) {
         for index in quotes.indices {
             if quotes[index].quote == quote.quote {
                 quotes.remove(at: index)
-                Persistence.shared.deleteQuote(quote)
+                CoreDataStack.shared.deleteQuote(quote)
                 return
             }
         }

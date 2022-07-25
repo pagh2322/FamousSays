@@ -41,7 +41,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     func isFavorited(_ quote: QuoteModel) -> Bool {
-        for quote in Persistence.shared.fetchQuotes() {
+        for quote in CoreDataStack.shared.fetchQuotes() {
             if quote.quote == currentQuote!.quote {
                 return true
             }
@@ -58,18 +58,18 @@ final class HomeViewModel: ObservableObject {
     }
     
     func addToFavorite() {
-        let newQuote = Quote(context: Persistence.shared.context)
+        let newQuote = Quote(context: CoreDataStack.shared.context)
         newQuote.quote = currentQuote!.quote
         newQuote.anime = currentQuote!.anime
         newQuote.character = currentQuote!.character
-        Persistence.shared.saveContext()
+        CoreDataStack.shared.saveContext()
         favoriteTrigger.send(.yes)
     }
     
     func deleteFromFavorite() {
-        for quote in Persistence.shared.fetchQuotes() {
+        for quote in CoreDataStack.shared.fetchQuotes() {
             if quote.quote == currentQuote!.quote {
-                Persistence.shared.deleteQuote(quote)
+                CoreDataStack.shared.deleteQuote(quote)
                 favoriteTrigger.send(.no)
                 return
             }

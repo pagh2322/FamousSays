@@ -41,7 +41,7 @@ final class FavoriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.quotes = Persistence.shared.fetchQuotes().reversed()
+        viewModel.quotes = CoreDataStack.shared.fetchQuotes().reversed()
     }
     
     func binding() {

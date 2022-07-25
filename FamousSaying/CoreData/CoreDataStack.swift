@@ -1,5 +1,5 @@
 //
-//  Persistence.swift
+//  CoreDataStack.swift
 //  FamousSaying
 //
 //  Created by peo on 2022/07/23.
@@ -7,16 +7,16 @@
 
 import CoreData
 
-final class Persistence {
-    static let shared = Persistence()
+final class CoreDataStack {
+    static let shared = CoreDataStack()
     
     private init() { }
     
     lazy var context: NSManagedObjectContext = {
-        return persistentContainer.viewContext
+        return container.viewContext
     }()
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores { storeDescription, error in
             if let error = error as NSError? {
